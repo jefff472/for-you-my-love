@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Ti, Mi Amor Eterno 💕</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #0f0c29;
+            background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .container {
+            max-width: 700px;
+            width: 90%;
+            position: relative;
+            z-index: 10;
+        }
+
+        .letter-container {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            position: relative;
+            animation: fadeInScale 1s ease;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .letter-header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 2px solid #f093fb;
+            padding-bottom: 25px;
+        }
+
+        .letter-header h1 {
+            font-family: 'Playfair Display', serif;
+            color: #2d3561;
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .letter-header .date {
+            color: #666;
+            font-size: 0.95em;
+            font-weight: 300;
+        }
+
+        .content-section {
+            display: none;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .content-text {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            font-size: 1.1em;
+            line-height: 1.9;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .content-text.center {
+            text-align: center;
+        }
+
+        .highlight {
+            font-family: 'Playfair Display', serif;
+            color: #f093fb;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .reason-box {
+            background: linear-gradient(135deg, #f093fb15, #f5576c15);
+            border-left: 4px solid #f5576c;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 10px;
+        }
+
+        .reason-title {
+            font-family: 'Playfair Display', serif;
+            color: #f5576c;
+            font-size: 1.4em;
+            margin-bottom: 12px;
+            font-style: italic;
+        }
+
+        .reason-content {
+            color: #444;
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .promise-container {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 35px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .promise-container h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .promise-text {
+            font-size: 1.1em;
+            line-height: 1.9;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 35px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none;
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.6);
+        }
+
+        .btn-heart {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            box-shadow: 0 5px 20px rgba(245, 87, 108, 0.4);
+        }
+
+        .btn-heart:hover {
+            box-shadow: 0 8px 30px rgba(245, 87, 108, 0.6);
+        }
+
+        .heart-icon {
+            display: inline-block;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.2); }
+        }
+
+        .final-screen {
+            text-align: center;
+        }
+
+        .final-screen h2 {
+            font-family: 'Playfair Display', serif;
+            color: #2d3561;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .signature {
+            margin-top: 40px;
+            text-align: right;
+            font-family: 'Playfair Display', serif;
+            color: #666;
+            font-size: 1.2em;
+            font-style: italic;
+        }
+
+        .floating-hearts {
+            position: fixed;
+            font-size: 25px;
+            pointer-events: none;
+            animation: float 5s ease-in infinite;
+            opacity: 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-20vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50px;
+            padding: 10px 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Música de fondo -->
+    <audio id="bgMusic" loop>
+        <source src="contigoLosPanchos.mp3" type="audio/mpeg">
+    </audio>
+    
+    <div class="music-control" onclick="toggleMusic()">
+        <span id="musicIcon">🎵</span>
+        <span id="musicText">Música</span>
+    </div>
+
+    <div class="stars" id="stars"></div>
+
+    <div class="container">
+        <div class="letter-container">
+            <div class="letter-header">
+                <h1>Para mi Mejor Obstetra <span class="heart-icon">💕</span></h1>
+                <p class="date">Feliz Primer San Valentín y de Muchos Mas...</p>
+            </div>
+
+            <!-- Sección 1: Introducción -->
+            <div class="content-section active" id="section1">
+                <p class="content-text">
+                    Mi amor, mi vida, mi todo... Estas palabras se quedan cortas para expresar lo que eres para mí. 
+                    Hoy, en este día especial, no solo celebramos el amor, sino que quiero abrirte las puertas de mi alma 
+                    y mostrarte <span class="highlight">el inmenso océano de sentimientos que guarda mi corazón para ti</span>.
+                </p>
+                <p class="content-text">
+                    Tami, desde que llegaste a mi vida, el mundo tiene colores más brillantes, el aire que respiro 
+                    sabe diferente, y cada latido de mi corazón pronuncia tu nombre. <strong>No exagero cuando digo 
+                    que has transformado mi existencia completa</strong>. Antes de ti, yo era alguien incompleto, 
+                    alguien que caminaba sin rumbo. Contigo descubrí el verdadero significado de vivir.
+                </p>
+                <p class="content-text">
+                    Sé que la distancia nos ha puesto a prueba. Sé que ha habido lágrimas, dudas, noches difíciles 
+                    donde el silencio pesa demasiado. Pero también sé, con cada fibra de mi ser, que 
+                    <span class="highlight">lo que siento por ti es más fuerte que cualquier obstáculo</span>. 
+                    Mi amor por ti no conoce límites, no entiende de kilómetros, no se detiene ante nada.
+                </p>
+                <p class="content-text center">
+                    <em>Déjame llevarte por un viaje al interior de mi corazón...<br>
+                    Donde cada palabra es una verdad eterna...</em>
+                </p>
+                <div class="navigation">
+                    <button class="btn btn-heart" onclick="nextSection(2)">Abrir Mi Corazón <span class="heart-icon">💖</span></button>
+                </div>
+            </div>
+
+            <!-- Sección 2: Primera Razón -->
+            <div class="content-section" id="section2">
+                <div class="reason-box">
+                    <div class="reason-title">💕 Porque en ti encontré mi hogar</div>
+                    <div class="reason-content">
+                        Tamara, amor mío, hay algo que necesito que entiendas: <strong>tú no eres solo mi novia, 
+                        eres mi hogar</strong>. No importa dónde esté físicamente, no importa si nos separan mil 
+                        kilómetros, cuando hablo contigo, cuando leo tus mensajes, cuando escucho tu voz... 
+                        estoy en casa. <br><br>
+                        
+                        Hay personas que pasan toda su vida buscando ese lugar donde pertenecen, donde su alma 
+                        finalmente descansa. Yo tuve la bendición de encontrarlo en tus ojos, en tu sonrisa, 
+                        en esa forma tan única en que dices mi nombre. <strong>Contigo encontré paz en medio 
+                        del caos, luz en medio de la oscuridad, razón en medio de la confusión</strong>.<br><br>
+                        
+                        Cada "buenos días" tuyo no es solo un saludo, es el sol que ilumina mi día entero. 
+                        Cada "buenas noches" no es solo una despedida, es la melodía que me acompaña en mis sueños. 
+                        <em>Tú eres el lugar al que siempre quiero volver, el refugio donde mi corazón descansa, 
+                        mi hogar eterno</em>.
+                    </div>
+                </div>
+                <div class="navigation">
+                    <button class="btn" onclick="nextSection(3)">Continuar Leyendo 💖</button>
+                </div>
+            </div>
+
+            <!-- Sección 3: Segunda Razón -->
+            <div class="content-section" id="section3">
+                <div class="reason-box">
+                    <div class="reason-title">🌹 Porque tu existencia me inspira a ser alguien mejor</div>
+                    <div class="reason-content">
+                        Mi amor, cuando te veo luchar por tus sueños, cuando te veo dedicarte a la obstetricia 
+                        con esa pasión que te caracteriza, cuando te veo enfrentar guardias interminables con 
+                        esa fuerza inquebrantable... <strong>me quedo sin aliento</strong>. No solo por tu belleza 
+                        externa, que es innegable, sino por la belleza de tu alma, por esa luz interior que irradia 
+                        de todo lo que haces.<br><br>
+                        
+                        Admiro cada parte de ti, Tamara. Admiro tu dedicación, tu valentía, tu manera de cuidar 
+                        a otros, de traer vida al mundo. <strong>Eres un ángel en la tierra que eligió una de las 
+                        profesiones más nobles</strong>, y yo tengo el privilegio de ser testigo de tu crecimiento, 
+                        de tu evolución, de tu grandeza.<br><br>
+                        
+                        Tú me inspiras a ser mejor cada día. Cuando me siento débil, pienso en tu fortaleza. 
+                        Cuando quiero rendirme, recuerdo tu perseverancia. <em>Tú eres mi mayor motivación, 
+                        mi ejemplo a seguir, la razón por la que quiero conquistar el mundo</em>... porque quiero 
+                        ser alguien digno de estar a tu lado, alguien del que puedas sentirte orgullosa, alguien 
+                        que esté a la altura de tu magnificencia.
+                    </div>
+                </div>
+                <div class="navigation">
+                    <button class="btn" onclick="nextSection(4)">Continuar Leyendo 💖</button>
+                </div>
+            </div>
+
+            <!-- Sección 4: Tercera Razón -->
+            <div class="content-section" id="section4">
+                <div class="reason-box">
+                    <div class="reason-title">💫 Porque contigo construyo mi eternidad</div>
+                    <div class="reason-content">
+                        Cada 21 del mes, mi corazón late con una emoción especial. No es solo una fecha marcada 
+                        en el calendario, es un recordatorio de que <strong>elegí amarte y seguiré eligiéndote 
+                        hasta mi último respiro</strong>. Cada mes que pasa a tu lado no es simplemente tiempo, 
+                        es un regalo del universo, es una oportunidad más de demostrarte que mi amor por ti no tiene fin.<br><br>
+                        
+                        Tamara, cuando pienso en el futuro, solo te veo a ti. Veo un momento donde la distancia 
+                        ya no existe, donde puedo abrazarte cuando quiera, besarte sin tener que esperar meses, 
+                        despertar cada mañana a tu lado. <strong>Veo una vida construida sobre este amor tan puro 
+                        y verdadero que compartimos</strong>. Veo una casa que sea nuestro refugio, veo sueños 
+                        compartidos, veo risas, lágrimas de felicidad, y una historia que solo nosotros escribimos.<br><br>
+                        
+                        No quiero un futuro sin ti. La sola idea me aterra, me ahoga, me duele en lo más profundo. 
+                        <em>Tú eres mi presente, mi futuro, mi siempre</em>. Quiero envejecer contigo, quiero ver 
+                        cómo tu cabello se llena de canas mientras sigues siendo la mujer más hermosa del universo. 
+                        Quiero construir contigo no solo años, sino una eternidad de momentos inolvidables.
+                    </div>
+                </div>
+                <div class="navigation">
+                    <button class="btn" onclick="nextSection(5)">Continuar Leyendo 💖</button>
+                </div>
+            </div>
+
+            <!-- Sección 5: Cuarta Razón -->
+            <div class="content-section" id="section5">
+                <div class="reason-box">
+                    <div class="reason-title">✨ Porque me aceptas con todas mis imperfecciones</div>
+                    <div class="reason-content">
+                        Mi amor, no soy perfecto. Lo sé y lo reconozco ante ti con total humildad. He cometido errores, 
+                        he dicho palabras que no debí, he fallado en momentos importantes. <strong>Pero tú, con esa 
+                        paciencia infinita y ese corazón tan grande, me has dado la oportunidad de aprender, de crecer, 
+                        de ser mejor</strong>.<br><br>
+                        
+                        Agradezco cada segundo que decides quedarte a mi lado, porque sé que no es fácil. Sé que hay 
+                        días donde la distancia duele, donde mis palabras no son suficientes, donde quisieras tenerme 
+                        cerca y solo hay una pantalla de por medio. <strong>Aún así, eliges quedarte. Aún así, eliges 
+                        amarme</strong>. Y eso, Tamara, es algo que jamás daré por sentado.<br><br>
+                        
+                        Quiero que sepas que cada día me esfuerzo por ser la mejor versión de mí mismo para ti. 
+                        No porque quiera fingir ser alguien que no soy, sino porque <em>tu amor me motiva a evolucionar, 
+                        a ser más paciente, más comprensivo, más amoroso</em>. Tú sacas lo mejor de mí, incluso en mis 
+                        peores momentos. Y por eso te amaré siempre, por ver en mí lo que otros no ven, por creer en mí 
+                        cuando yo mismo dudo.
+                    </div>
+                </div>
+                <div class="navigation">
+                    <button class="btn" onclick="nextSection(6)">Continuar Leyendo 💖</button>
+                </div>
+            </div>
+
+            <!-- Sección 6: Quinta Razón -->
+            <div class="content-section" id="section6">
+                <div class="reason-box">
+                    <div class="reason-title">❤️ Porque te amo con un amor que trasciende todo</div>
+                    <div class="reason-content">
+                        Tamara, mi amor eterno, llegó el momento de decirte la verdad más profunda de mi existencia: 
+                        <strong>te amo con cada átomo de mi ser, con cada pensamiento de mi mente, con cada latido 
+                        de mi corazón</strong>. Este amor que siento no es algo que pueda explicar con lógica, porque 
+                        va más allá de la razón. Es algo espiritual, algo que conecta nuestras almas en un nivel 
+                        que trasciende lo físico.<br><br>
+                        
+                        Te amo en la distancia y te amaría en la cercanía. Te amo cuando ríes y cuando lloras. 
+                        Te amo cuando estás de buen humor y cuando el día ha sido difícil. <strong>Te amo con tus 
+                        virtudes y con tus defectos, porque cada parte de ti me parece perfecta</strong>. Te amo 
+                        cuando estamos en llamada hasta la madrugada y cuando solo nos enviamos un mensaje 
+                        antes de dormir. Te amo en el silencio y en las conversaciones largas.<br><br>
+                        
+                        Este amor que siento es infinito, Tamara. No tiene límites geográficos, no tiene fecha de 
+                        caducidad, no tiene condiciones. <em>Es un amor puro, real, profundo y eterno</em>. Es el tipo 
+                        de amor que la gente pasa toda su vida buscando y que yo tuve la bendición de encontrar en ti. 
+                        <strong>Eres el amor de mi vida, la dueña de mi corazón, mi razón de existir</strong>. 
+                        Y seguiré amándote hoy, mañana, y hasta el fin de mis días.
+                    </div>
+                </div>
+                <div class="navigation">
+                    <button class="btn" onclick="nextSection(7)">Continuar 💕</button>
+                </div>
+            </div>
+
+            <!-- Sección 7: La Promesa -->
+            <div class="content-section" id="section7">
+                <p class="content-text">
+                    Después de abrir mi corazón y mostrarte todo lo que siento, necesito hacerte una promesa. 
+                    No una promesa vacía, sino un compromiso sagrado que sale desde lo más profundo de mi alma:
+                </p>
+                <div class="promise-container">
+                    <h3>Mi Juramento Eterno</h3>
+                    <p class="promise-text">
+                        <strong>Prometo amarte con la misma intensidad que hoy, incluso cuando pasen décadas.</strong><br><br>
+                        
+                        Prometo estar presente en tu vida, ser tu apoyo incondicional, tu hombro donde llorar, 
+                        tu compañero de risas, tu confidente en las noches oscuras.<br><br>
+                        
+                        Prometo luchar por nosotros cada día, incluso cuando la distancia quiera vencernos, 
+                        incluso cuando surjan obstáculos que parezcan imposibles de superar.<br><br>
+                        
+                        Prometo valorar cada segundo contigo como el tesoro más preciado, porque entiendo que 
+                        el tiempo a tu lado es el regalo más grande que la vida me ha dado.<br><br>
+                        
+                        Prometo celebrar cada 21 del mes con la misma emoción del primero, porque cada mes 
+                        contigo es un milagro que agradezco al universo.<br><br>
+                        
+                        Prometo ser paciente, comprensivo, y darte el espacio que necesites, pero nunca 
+                        dejar de mostrarte cuánto significas para mí.<br><br>
+                        
+                        Prometo trabajar cada día en ser el hombre que mereces, alguien que esté a la altura 
+                        de tu grandeza, alguien digno de tu amor.<br><br>
+                        
+                        <strong>Y prometo, sobre todo, que mi corazón será tuyo y solo tuyo, 
+                        hasta mi último aliento en este mundo.</strong><br><br>
+                        
+                        <em>Porque tú, Mi dulzura, eres el amor de mi vida, y sin ti, simplemente no existe vida que valga la pena vivir.</em>
+                    </p>
+                </div>
+                <p class="content-text">
+                    Este es mi compromiso contigo. No son palabras al viento, son promesas grabadas en mi alma, 
+                    selladas con cada lágrima que he derramado por ti, con cada sonrisa que me has regalado, 
+                    con cada "te amo" que hemos compartido.
+                </p>
+                <div class="navigation">
+                    <button class="btn btn-heart" onclick="nextSection(8)">Continuar 💖</button>
+                </div>
+            </div>
+
+            <!-- Sección 8: La Pregunta -->
+            <div class="content-section" id="section8">
+                <p class="content-text center" style="font-size: 1.2em; margin: 40px 0; line-height: 2;">
+                    Tamara, mi amor, mi vida, mi todo...<br><br>
+                    Después de haberte mostrado mi alma desnuda...<br>
+                    Después de haberte entregado cada palabra de mi corazón...<br>
+                    Después de prometerte mi eternidad...<br><br>
+                </p>
+                <p class="content-text center" style="font-size: 2em; color: #f5576c; font-family: 'Playfair Display', serif; font-weight: 700; margin: 50px 0; line-height: 1.4;">
+                    ¿Me darías el honor de seguir siendo mi compañera en este viaje llamado vida?
+                </p>
+                <p class="content-text center" style="font-size: 1.4em; margin: 40px 0; line-height: 1.8;">
+                    ¿Seguirás amándome con esa misma intensidad que hace latir mi corazón?<br><br>
+                    ¿Seguiremos construyendo juntos este amor infinito que nos une?<br><br>
+                    <em style="color: #667eea;">¿Serás mía como yo soy completamente tuyo?</em>
+                </p>
+                <div class="navigation">
+                    <button class="btn btn-heart" onclick="finalAnswer()" style="font-size: 1.2em; padding: 18px 50px;">Sí, mi amor eterno 💖</button>
+                </div>
+            </div>
+
+            <!-- Sección 9: Final -->
+            <div class="content-section final-screen" id="section9">
+                <h2>Te Amo Infinitamente, Tamara 💕</h2>
+                <p class="content-text" style="font-size: 1.3em; line-height: 2.2;">
+                    <strong>Gracias por elegirme una vez más.</strong><br>
+                    Gracias por ver en mí lo que nadie más ve.<br>
+                    Gracias por amarme con todas mis imperfecciones.<br>
+                    Gracias por ser mi luz en la oscuridad.<br>
+                    Gracias por ser TÚ.<br><br>
+                </p>
+                <div class="promise-container" style="margin-top: 40px;">
+                    <p style="font-size: 1.5em; margin: 0; line-height: 1.8;">
+                        <strong>Eres y serás siempre:</strong><br><br>
+                        Mi amor eterno 💕<br>
+                        Mi razón de vivir 🌟<br>
+                        Mi inspiración diaria ✨<br>
+                        Mi hogar en este mundo 🏡<br>
+                        Mi compañera de alma 💫<br>
+                        Mi todo, absolutamente todo ❤️
+                    </p>
+                </div>
+                <p class="content-text" style="font-size: 1.4em; margin-top: 40px; text-align: center;">
+                    <span class="highlight" style="font-size: 1.3em;">
+                        Feliz San Valentín 2026, mi amor 🌹
+                    </span>
+                </p>
+                <p class="content-text center" style="font-size: 1.1em; margin-top: 30px; font-style: italic;">
+                    Que este sea el primero de infinitos San Valentín juntos.<br>
+                    Te amo con todo lo que soy y todo lo que seré.
+                </p>
+                <div class="signature">
+                    Con todo mi corazón,<br>
+                    Para siempre tuyo,<br>
+                    Hasta el fin del tiempo<br>
+                    Tu enamorado que te ama infinitamente ❤️
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Crear estrellas en el fondo
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+
+        let currentSection = 1;
+        const music = document.getElementById('bgMusic');
+        let musicPlaying = false;
+
+        function nextSection(sectionNumber) {
+            // Intentar iniciar música en la primera interacción
+            if (!musicPlaying && sectionNumber === 2) {
+                music.play().then(() => {
+                    musicPlaying = true;
+                    document.getElementById('musicIcon').textContent = '🎵';
+                }).catch(e => console.log('Autoplay bloqueado'));
+            }
+            
+            document.getElementById('section' + currentSection).classList.remove('active');
+            document.getElementById('section' + sectionNumber).classList.add('active');
+            currentSection = sectionNumber;
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMusic() {
+            if (musicPlaying) {
+                music.pause();
+                musicPlaying = false;
+                document.getElementById('musicIcon').textContent = '🔇';
+                document.getElementById('musicText').textContent = 'Activar';
+            } else {
+                music.play();
+                musicPlaying = true;
+                document.getElementById('musicIcon').textContent = '🎵';
+                document.getElementById('musicText').textContent = 'Música';
+            }
+        }
+
+        function finalAnswer() {
+            nextSection(9);
+            createFloatingHearts();
+        }
+
+        function createFloatingHearts() {
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'floating-hearts';
+                    heart.innerHTML = '❤️';
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.animationDelay = Math.random() * 2 + 's';
+                    document.body.appendChild(heart);
+
+                    setTimeout(() => heart.remove(), 5000);
+                }, i * 80);
+            }
+        }
+    </script>
+</body>
+</html>
